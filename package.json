@@ -1,0 +1,22 @@
+{
+  "name": "sprint3",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:erica-lopes/desafio_fullstack.git",
+  "author": "Erica Lopes <ericalopes@outlook.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon src/app.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20",
+    "sucrase": "^3.29.0"
+  }
+}
