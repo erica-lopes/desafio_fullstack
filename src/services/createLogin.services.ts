@@ -3,6 +3,7 @@ import { User } from "../entities/user.entity";
 import { ILoginRequest } from "../interfaces/login.interface";
 import { compareSync } from "bcryptjs";
 import jwt from "jsonwebtoken";
+import { AppError } from "../errors/appError";
 import "dotenv/config";
 
 const createLoginService = async ({
@@ -14,13 +15,13 @@ const createLoginService = async ({
   const user = await userRepository.findOneBy({ email: email });
 
   if (!user) {
-    throw new Error("Invalid email or password");
+    throw new AppError("Invalid email or password", 401);
   }
 
   const passwordMatch = await compareSync(password, user.password);
 
   if (!passwordMatch) {
-    throw new Error("Invalid email or password");
+    throw new AppError("Invalid email or password", 401);
   }
 
   const token = jwt.sign(
