@@ -9,3 +9,13 @@ declare global {
     }
   }
 }
+
+declare global {
+  namespace Express {
+    interface Request {
+      client: {
+        id: string;
+      };
+    }
+  }
+}

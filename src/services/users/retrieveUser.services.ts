@@ -1,6 +1,6 @@
-import { AppDataSource } from "../data-source";
-import { User } from "../entities/user.entity";
-import { AppError } from "../errors/appError";
+import { AppDataSource } from "../../data-source";
+import { User } from "../../entities/user.entity";
+import { AppError } from "../../errors/appError";
 
 const retrieveUserService = async (id: string): Promise<User> => {
   const userRepository = AppDataSource.getRepository(User);

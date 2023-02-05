@@ -3,12 +3,12 @@ import {
   IUserRequest,
   IUserUpdateRequest,
 } from "./../interfaces/users.interface";
-import createUserService from "../services/createUser.services";
-import listUserService from "../services/listUser.services";
-import retrieveUserService from "../services/retrieveUser.services";
-import updateUserService from "../services/updateUser.services";
-import deleteUserService from "../services/deleteUser.services";
+import createUserService from "../services/users/createUser.services";
+import retrieveUserService from "../services/users/retrieveUser.services";
+import updateUserService from "../services/users/updateUser.services";
+import deleteUserService from "../services/users/deleteUser.services";
 import { instanceToPlain } from "class-transformer";
+import listClientsByUserService from "../services/users/listClientsByUser.services";
 
 const createUserController = async (request: Request, response: Response) => {
   const user: IUserRequest = request.body;
@@ -17,7 +17,8 @@ const createUserController = async (request: Request, response: Response) => {
 };
 
 const listUserController = async (request: Request, response: Response) => {
-  const listUsers = await listUserService();
+  const userId = request.user.id;
+  const listUsers = await listClientsByUserService(userId);
   return response.status(200).json(instanceToPlain(listUsers));
 };
 
@@ -29,15 +30,17 @@ const retrieveUserController = async (request: Request, response: Response) => {
 
 const updateUserController = async (request: Request, response: Response) => {
   const user: IUserUpdateRequest = request.body;
-  const id: string = request.params.id;
-  const updatedUser = updateUserService(user, id);
+  const id = request.params.id;
+  const updatedUser = await updateUserService(user, id);
   return response.json(instanceToPlain(updatedUser));
 };
 
 const deleteUserController = async (request: Request, response: Response) => {
-  const id: string = request.params.id;
+  const id = request.params.id;
   await deleteUserService(id);
-  return response.status(204).send();
+  return response.status(204).json({
+    message: "Removed!",
+  });
 };
 
 export {

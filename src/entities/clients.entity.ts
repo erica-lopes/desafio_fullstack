@@ -3,14 +3,12 @@ import {
   Column,
   PrimaryGeneratedColumn,
   CreateDateColumn,
-  OneToMany,
-  JoinColumn,
+  ManyToOne,
 } from "typeorm";
-import { Exclude } from "class-transformer";
-import { Client } from "./clients.entity";
+import { User } from "./user.entity";
 
-@Entity("users")
-class User {
+@Entity("clients")
+class Client {
   @PrimaryGeneratedColumn("uuid")
   id: string;
 
@@ -23,16 +21,14 @@ class User {
   @Column({ length: 14 })
   phoneNumber: string;
 
-  @Column({ length: 120 })
-  @Exclude()
-  password: string;
-
   @CreateDateColumn()
   registrationDate: Date;
 
-  @OneToMany(() => Client, (client) => client.user)
-  @JoinColumn()
-  client: Client[];
+  @Column({ default: true })
+  isActive: boolean;
+
+  @ManyToOne(() => User)
+  user: User;
 }
 
-export { User };
+export { Client };

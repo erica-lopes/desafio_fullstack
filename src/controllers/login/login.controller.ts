@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import { ILoginRequest } from "./../interfaces/login.interface";
-import createLoginService from "../services/createLogin.services";
+import { ILoginRequest } from "../../interfaces/login.interface";
+import createLoginService from "../../services/login/createLogin.services";
 
 const createLoginController = async (request: Request, response: Response) => {
   const data: ILoginRequest = request.body;

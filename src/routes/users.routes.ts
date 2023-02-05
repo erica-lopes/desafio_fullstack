@@ -1,3 +1,5 @@
+import { Router } from "express";
+import verifyTokenMiddleware from "../middlewares/verifyToken.middleware";
 import {
   createUserController,
   listUserController,
@@ -5,15 +7,13 @@ import {
   updateUserController,
   deleteUserController,
 } from "../controllers/users.controller";
-import verifyTokenMiddleware from "../middlewares/verifyToken.middleware";
-import { Router } from "express";
 
 const userRouter = Router();
 
 userRouter.post("", createUserController);
-userRouter.get("", verifyTokenMiddleware, listUserController);
-userRouter.get("/:uuid", verifyTokenMiddleware, retrieveUserController);
-userRouter.patch("/:uuid", verifyTokenMiddleware, updateUserController);
-userRouter.delete("/:uuid", verifyTokenMiddleware, deleteUserController);
+userRouter.get("/clients", verifyTokenMiddleware, listUserController);
+userRouter.get("/:id", verifyTokenMiddleware, retrieveUserController);
+userRouter.patch("/:id", verifyTokenMiddleware, updateUserController);
+userRouter.delete("/:id", verifyTokenMiddleware, deleteUserController);
 
 export default userRouter;

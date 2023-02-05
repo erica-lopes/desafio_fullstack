@@ -5,12 +5,14 @@ import "reflect-metadata";
 import { startDatabase } from "./database";
 import userRouter from "./routes/users.routes";
 import loginRouter from "./routes/login.routes";
+import clientRouter from "./routes/clients.routes";
 
 const app = express();
 
 app.use(express.json());
-app.use("/users", userRouter);
+app.use("/user", userRouter);
 app.use("/login", loginRouter);
+app.use("/clients", clientRouter);
 
 app.use(handleErrorMiddleware);
 

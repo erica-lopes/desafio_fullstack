@@ -1,9 +1,9 @@
-import { AppDataSource } from "../data-source";
-import { User } from "../entities/user.entity";
-import { ILoginRequest } from "../interfaces/login.interface";
+import { AppDataSource } from "../../data-source";
+import { User } from "../../entities/user.entity";
+import { ILoginRequest } from "../../interfaces/login.interface";
 import { compareSync } from "bcryptjs";
 import jwt from "jsonwebtoken";
-import { AppError } from "../errors/appError";
+import { AppError } from "../../errors/appError";
 import "dotenv/config";
 
 const createLoginService = async ({
@@ -28,7 +28,7 @@ const createLoginService = async ({
     { email: user.email },
     process.env.SECRET_KEY as string,
     {
-      expiresIn: "1h",
+      expiresIn: "5m",
       subject: user.id,
     }
   );
