@@ -7,15 +7,14 @@ import { instanceToPlain } from "class-transformer";
 import createClientService from "../services/clients/createClient.services";
 import retrieveClientService from "../services/clients/retrieveClient.services";
 import updateClientService from "../services/clients/updateClient.services";
-import deleteClientService from "../services/clients/deleteClient.controller";
+import deleteClientService from "../services/clients/deleteClient.services";
+
 
 const createClientController = async (request: Request, response: Response) => {
   const client: IClientRequest = request.body;
   const id: string = request.user.id;
   const createdClient = await createClientService(client, id);
-  return response.status(201).json(
-    instanceToPlain(createdClient)
-  );
+  return response.status(201).json(instanceToPlain(createdClient));
 };
 
 const retrieveClientController = async (

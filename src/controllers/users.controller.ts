@@ -5,10 +5,10 @@ import {
 } from "./../interfaces/users.interface";
 import createUserService from "../services/users/createUser.services";
 import retrieveUserService from "../services/users/retrieveUser.services";
+import listClientsByUserService from "../services/users/listClientsByUser.services";
 import updateUserService from "../services/users/updateUser.services";
 import deleteUserService from "../services/users/deleteUser.services";
 import { instanceToPlain } from "class-transformer";
-import listClientsByUserService from "../services/users/listClientsByUser.services";
 
 const createUserController = async (request: Request, response: Response) => {
   const user: IUserRequest = request.body;

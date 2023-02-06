@@ -6,9 +6,11 @@ import {
   updateClientController,
   deleteClientController,
 } from "../controllers/clients.controller";
+import listClientsReportController from "../controllers/listClientsReport.controller";
 
 const clientRouter = Router();
 
+clientRouter.get("/report", listClientsReportController); //verifyTokenMiddleware
 clientRouter.post("", verifyTokenMiddleware, createClientController);
 clientRouter.get("/:id", verifyTokenMiddleware, retrieveClientController);
 clientRouter.patch("/:id", verifyTokenMiddleware, updateClientController);
