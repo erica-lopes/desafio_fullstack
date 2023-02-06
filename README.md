@@ -39,11 +39,6 @@
 >Ts-Jest
 >Supertest
 ```
-
-&nbsp;
-
- => [Clique aqui](https://doc-nine.vercel.app/) e confira a documentação da API.
- <br />
  
  &nbsp;
 
@@ -52,16 +47,28 @@
 
 * Faça o clone do repositório para sua máquina
 
-* Acesse seu terminal e dentro da pasta do projeto rode o comando yarn install para instalar todas as dependências do projeto
+* Acesse seu terminal e dentro da pasta do projeto rode o comando yarn para instalar todas as dependências do projeto
 
 ```bash
-  yarn install
+  yarn 
 ```
 
 * Para rodar a aplicação use yarn dev 
 
 ```bash
   yarn dev
+```
+
+* Em seguida, crie um arquivo .env, copiando o formato do arquivo .env.example; Configure suas variáveis de ambiente com suas credenciais do Postgres e uma nova database da sua escolha.
+
+```bash
+ cp .env.example .env
+```
+
+* Execute as migrations com o comando:
+
+```bash
+ yarn typeorm migration:run -d src/data-source.ts
 ```
 
 * Para rodar os testes utilize o comando:
@@ -79,3 +86,4 @@
 
 <br />
 
+[ Voltar para o topo ](#desafio-fullstack)
