@@ -2,7 +2,6 @@ import express from "express";
 import "express-async-errors";
 import handleErrorMiddleware from "./middlewares/handleError.middleware";
 import "reflect-metadata";
-import { startDatabase } from "./database";
 import userRouter from "./routes/users.routes";
 import loginRouter from "./routes/login.routes";
 import clientRouter from "./routes/clients.routes";
@@ -16,7 +15,4 @@ app.use("/clients", clientRouter);
 
 app.use(handleErrorMiddleware);
 
-app.listen(3000, () => {
-  console.log("Listen in port 3000");
-  startDatabase();
-});
+export default app;

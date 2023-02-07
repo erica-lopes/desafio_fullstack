@@ -10,7 +10,7 @@ import listClientsReportController from "../controllers/listClientsReport.contro
 
 const clientRouter = Router();
 
-clientRouter.get("/report", listClientsReportController); //verifyTokenMiddleware
+clientRouter.get("/report", verifyTokenMiddleware, listClientsReportController);
 clientRouter.post("", verifyTokenMiddleware, createClientController);
 clientRouter.get("/:id", verifyTokenMiddleware, retrieveClientController);
 clientRouter.patch("/:id", verifyTokenMiddleware, updateClientController);

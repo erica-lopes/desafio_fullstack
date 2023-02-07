@@ -23,14 +23,14 @@ const listUserController = async (request: Request, response: Response) => {
 };
 
 const retrieveUserController = async (request: Request, response: Response) => {
-  const id: string = request.params.id;
+  const id: string = request.user.id;
   const user = await retrieveUserService(id);
   return response.json(instanceToPlain(user));
 };
 
 const updateUserController = async (request: Request, response: Response) => {
   const user: IUserUpdateRequest = request.body;
-  const id = request.params.id;
+  const id = request.user.id;
   const updatedUser = await updateUserService(user, id);
   return response.json(instanceToPlain(updatedUser));
 };
@@ -39,7 +39,7 @@ const deleteUserController = async (request: Request, response: Response) => {
   const id = request.params.id;
   await deleteUserService(id);
   return response.status(204).json({
-    message: "Removed!",
+    message: "User deleted successfully!",
   });
 };
 

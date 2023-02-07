@@ -12,8 +12,8 @@ const userRouter = Router();
 
 userRouter.post("", createUserController);
 userRouter.get("/clients", verifyTokenMiddleware, listUserController);
-userRouter.get("/:id", verifyTokenMiddleware, retrieveUserController);
-userRouter.patch("/:id", verifyTokenMiddleware, updateUserController);
+userRouter.get("/profile", verifyTokenMiddleware, retrieveUserController);
+userRouter.patch("", verifyTokenMiddleware, updateUserController);
 userRouter.delete("/:id", verifyTokenMiddleware, deleteUserController);
 
 export default userRouter;

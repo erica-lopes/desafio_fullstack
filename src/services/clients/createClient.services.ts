@@ -30,19 +30,21 @@ const createClientService = async (
 
   await clientRepository.save(newClient);
 
-  const userResponse = {
-    id: newClient.user.id,
-    name: newClient.user.name,
-  };
+  //Caso queira filtrar quais informações do user passar:
 
-  const clientResponse = {
-    name: newClient.name,
-    email: newClient.email,
-    phoneNumber: newClient.phoneNumber,
-    user: userResponse,
-  };
+  // const userResponse = {
+  //   id: newClient.user.id,
+  //   name: newClient.user.name,
+  // };
 
-  return clientResponse;
+  // const clientResponse = {
+  //   name: newClient.name,
+  //   email: newClient.email,
+  //   phoneNumber: newClient.phoneNumber,
+  //   user: userResponse,
+  // };
+
+  return newClient;
 };
 
 export default createClientService;

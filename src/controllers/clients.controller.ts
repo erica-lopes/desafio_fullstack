@@ -9,7 +9,6 @@ import retrieveClientService from "../services/clients/retrieveClient.services";
 import updateClientService from "../services/clients/updateClient.services";
 import deleteClientService from "../services/clients/deleteClient.services";
 
-
 const createClientController = async (request: Request, response: Response) => {
   const client: IClientRequest = request.body;
   const id: string = request.user.id;
@@ -36,7 +35,7 @@ const updateClientController = async (request: Request, response: Response) => {
 const deleteClientController = async (request: Request, response: Response) => {
   const id: string = request.params.id;
   await deleteClientService(id);
-  return response.status(204).json({
+  return response.status(200).json({
     message: "Deleted successfully",
   });
 };
