@@ -81,7 +81,8 @@
  
 &nbsp;
 ## 💅 Front-End
-[Clique aqui](https://www.figma.com/file/0jy9WmPJwm0c6v5wEnYAKI/Untitled?node-id=0%3A1&t=E0Zn7fSJjztwNawO-0) para acessar o Figma da aplicação.}
+[Clique aqui](https://www.figma.com/file/0jy9WmPJwm0c6v5wEnYAKI/Untitled?node-id=0%3A1&t=E0Zn7fSJjztwNawO-0) para acessar o Figma da aplicação.
+<br />
 [Clique aqui](https://github.com/erica-lopes/desafio_fullstack_front) para acessar o repositório da aplicação.
 
 
