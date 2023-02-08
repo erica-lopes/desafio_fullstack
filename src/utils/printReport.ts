@@ -5,6 +5,7 @@ const printReport = async () => {
   const clientRepository = AppDataSource.getRepository(Client);
 
   const clients = await clientRepository.find();
+  console.log(clients);
 
   const body = [];
 

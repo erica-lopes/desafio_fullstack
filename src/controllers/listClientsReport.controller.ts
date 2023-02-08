@@ -35,7 +35,7 @@ const listClientsReportController = async (
       {
         table: {
           heights: function (row) {
-            return 20;
+            return 10;
           },
           body: [
             [
@@ -43,7 +43,6 @@ const listClientsReportController = async (
               { text: "Name", style: "columnsTitle" },
               { text: "Email", style: "columnsTitle" },
               { text: "Contato", style: "columnsTitle" },
-              { text: "Data de registro", style: "columnsTitle" },
             ],
             ...res,
           ],
@@ -84,6 +83,9 @@ const listClientsReportController = async (
   pdfDoc.on("end", () => {
     const result = Buffer.concat(chunks);
     response.end(result);
+  });
+  return response.status(200).json({
+    message: "PDF generated successfully",
   });
 };
 
