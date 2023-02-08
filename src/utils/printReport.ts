@@ -14,7 +14,6 @@ const printReport = async () => {
     rows.push(contacts.name);
     rows.push(contacts.email);
     rows.push(contacts.phoneNumber);
-    rows.push(contacts.registrationDate);
 
     body.push(rows);
   }
