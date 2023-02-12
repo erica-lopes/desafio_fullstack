@@ -9,11 +9,11 @@ const listClientsByUserService = async (userId: string): Promise<Client[]> => {
 
   const user = await userRepository.findOne({
     where: {
-      id: userId
+      id: userId,
     },
     relations: {
       client: true,
-    }
+    },
   });
 
   return user!.client;

@@ -30,7 +30,10 @@ class User {
   @CreateDateColumn()
   registrationDate: Date;
 
-  @OneToMany(() => Client, (client) => client.user)
+  @OneToMany(() => Client, (client) => client.user, {
+    eager: true,
+    onDelete: "CASCADE",
+  })
   @JoinColumn()
   client: Client[];
 }

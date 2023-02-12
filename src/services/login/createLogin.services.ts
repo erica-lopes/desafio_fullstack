@@ -28,7 +28,7 @@ const createLoginService = async ({
     { email: user.email },
     process.env.SECRET_KEY as string,
     {
-      expiresIn: "5m",
+      expiresIn: "1h",
       subject: user.id,
     }
   );
