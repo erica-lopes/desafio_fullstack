@@ -6,13 +6,11 @@ const deleteClientService = async (id: string): Promise<void> => {
   const clientRepository = AppDataSource.getRepository(Client);
   const findClient = await clientRepository.findOneBy({ id });
 
-  if (findClient?.isActive === false) {
-    throw new AppError("User already inactive");
+  if (!findClient) {
+    throw new AppError("Client not found", 404);
   }
 
-  await clientRepository.update(id, {
-    isActive: false,
-  });
+  await clientRepository.remove(findClient);
 };
 
 export default deleteClientService;

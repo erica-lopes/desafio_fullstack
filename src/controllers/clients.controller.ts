@@ -35,7 +35,7 @@ const updateClientController = async (request: Request, response: Response) => {
 const deleteClientController = async (request: Request, response: Response) => {
   const id: string = request.params.id;
   await deleteClientService(id);
-  return response.status(200).json({
+  return response.status(204).json({
     message: "Deleted successfully",
   });
 };
